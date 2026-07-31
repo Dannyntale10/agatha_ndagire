@@ -1014,3 +1014,167 @@ body::before {
   flex-direction: column !important;
   gap: 15px;
 }
+
+/* --- Storyline Master Upgrades --- */
+
+/* 1. Progress Bar */
+.story-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, var(--primary), var(--accent), #fff);
+  box-shadow: 0 0 10px var(--accent);
+  transition: width 0.1s ease-out;
+}
+
+/* 2. Parallax Petals */
+.parallax-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.parallax-petal {
+  position: absolute;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff1493"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  filter: drop-shadow(0 0 5px rgba(255, 20, 147, 0.5));
+  will-change: transform;
+}
+
+/* 3. Milestone Dots */
+.milestone-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  position: relative;
+  z-index: 2;
+}
+.milestone-dot {
+  width: 20px;
+  height: 20px;
+  background: var(--accent);
+  border: 4px solid var(--bg-color);
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--accent);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.milestone-dot:hover {
+  transform: scale(1.5);
+  box-shadow: 0 0 25px #fff, 0 0 15px var(--accent);
+}
+.milestone-dot::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 35px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--accent);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  border: 1px solid var(--accent);
+}
+.milestone-dot:hover::after {
+  opacity: 1;
+}
+
+/* 4. Locked Chapter Screen */
+.chapter-locked {
+  overflow: hidden;
+}
+.lock-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 0, 10, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+.lock-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: bounce 2s infinite;
+}
+.lock-overlay h3 {
+  color: var(--accent);
+  margin-bottom: 5px;
+}
+.lock-overlay p {
+  color: #ddd;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+.lock-input-group {
+  display: flex;
+  gap: 10px;
+}
+.lock-input-group input {
+  padding: 10px 15px;
+  border-radius: 30px;
+  border: 2px solid var(--primary);
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.lock-input-group input:focus {
+  border-color: var(--accent);
+}
+.lock-error {
+  color: #ff4d4d !important;
+  margin-top: 10px !important;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* 5. To Be Continued Ending */
+.to-be-continued {
+  text-align: center;
+  padding: 100px 20px;
+  color: var(--accent);
+  text-shadow: 0 0 20px var(--accent);
+}
+.to-be-continued h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+.to-be-continued p {
+  font-size: 1.2rem;
+  color: #fff;
+}

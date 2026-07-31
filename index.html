@@ -28,6 +28,9 @@
   <canvas id="confetti-canvas"></canvas>
 
   <!-- App Main Content -->
+  <div class="story-progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <div id="parallax-container" class="parallax-container"></div>
+  
   <div class="app-container">
     <!-- Top Bar -->
     <div class="top-bar">
@@ -59,6 +62,11 @@
         </div>
       </section>
 
+      <!-- Milestone 1 -->
+      <div class="milestone-divider">
+        <div class="milestone-dot" data-label="The Day Everything Changed"></div>
+      </div>
+
       <!-- Chapter 2: Every Second Counts -->
       <section class="story-chapter hidden-chapter">
         <div class="chapter-content">
@@ -83,6 +91,11 @@
         </div>
       </section>
 
+      <!-- Milestone 2 -->
+      <div class="milestone-divider">
+        <div class="milestone-dot" data-label="Our Best Adventures"></div>
+      </div>
+
       <!-- Chapter 3: Beautiful Memories -->
       <section class="story-chapter hidden-chapter">
         <div class="chapter-content">
@@ -100,6 +113,11 @@
           </div>
         </div>
       </section>
+
+      <!-- Milestone 3 -->
+      <div class="milestone-divider">
+        <div class="milestone-dot" data-label="Little Things, Big Love"></div>
+      </div>
 
       <!-- Chapter 4: Little Surprises -->
       <section class="story-chapter hidden-chapter">
@@ -125,6 +143,11 @@
         </div>
       </section>
 
+      <!-- Milestone 4 -->
+      <div class="milestone-divider">
+        <div class="milestone-dot" data-label="A Sweet Promise"></div>
+      </div>
+
       <!-- Chapter 5: A Sweet Promise -->
       <section class="story-chapter hidden-chapter">
         <div class="chapter-content">
@@ -140,11 +163,29 @@
         </div>
       </section>
 
+      <!-- Milestone 5 -->
+      <div class="milestone-divider">
+        <div class="milestone-dot" data-label="My Heart's Secret"></div>
+      </div>
+
       <!-- Chapter 6: My Heart's Secret -->
-      <section class="story-chapter hidden-chapter">
+      <section class="story-chapter hidden-chapter chapter-locked" id="chapter-6-section">
         <div class="chapter-content">
           <!-- Interactive Wax-Sealed Secret Love Letter Section -->
           <div class="secret-letter-section">
+            
+            <!-- Lock Overlay -->
+            <div class="lock-overlay" id="lock-overlay">
+              <div class="lock-icon">🔒</div>
+              <h3>Secret Chapter Locked</h3>
+              <p>Hint: What is the magic word?</p>
+              <div class="lock-input-group">
+                <input type="password" id="passcode-input" placeholder="Enter passcode..." autocomplete="off">
+                <button class="btn btn-primary" id="btn-unlock">Unlock 🔑</button>
+              </div>
+              <p class="lock-error" id="lock-error">Incorrect passcode. Try again!</p>
+            </div>
+
             <div class="wax-envelope" id="wax-envelope-btn" title="Tap to unseal Ndagire Agatha's Secret Letter!">
               <div class="wax-seal">💌</div>
               <div class="envelope-label">Tap to Open Ndagire Agatha's Secret Sealed Letter</div>
@@ -152,6 +193,12 @@
           </div>
         </div>
       </section>
+      
+      <!-- To Be Continued Ending -->
+      <div class="to-be-continued hidden-chapter story-chapter">
+        <h2>To Be Continued...</h2>
+        <p>The best chapter is the one we write tomorrow. 💖</p>
+      </div>
       
       <!-- Scroll Indicator Helper -->
       <div class="scroll-indicator">

@@ -488,4 +488,65 @@ document.addEventListener('DOMContentLoaded', () => {
   chapters.forEach(chapter => {
     chapterObserver.observe(chapter);
   });
+
+  // --- Storyline Master Upgrades ---
+
+  // 1. Progress Bar Logic
+  const progressFill = document.getElementById('progress-fill');
+  window.addEventListener('scroll', () => {
+    const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPosition = window.scrollY;
+    if (scrollTotal > 0) {
+      const progress = (scrollPosition / scrollTotal) * 100;
+      if (progressFill) progressFill.style.width = progress + '%';
+    }
+  });
+
+  // 2. Parallax Petals Engine
+  const parallaxContainer = document.getElementById('parallax-container');
+  const petals = [];
+  if (parallaxContainer) {
+    for (let i = 0; i < 20; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'parallax-petal';
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.top = Math.random() * 120 + 'vh'; // Spread further down
+      const size = Math.random() * 15 + 10;
+      petal.style.width = size + 'px';
+      petal.style.height = size + 'px';
+      const speed = Math.random() * 0.4 + 0.1;
+      parallaxContainer.appendChild(petal);
+      petals.push({ el: petal, speed });
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    petals.forEach(p => {
+      const offset = window.scrollY * p.speed;
+      p.el.style.transform = `translateY(-${offset}px) rotate(${offset * 0.2}deg)`;
+    });
+  });
+
+  // 3. Locked Chapter Passcode Logic
+  const unlockBtn = document.getElementById('btn-unlock');
+  const passcodeInput = document.getElementById('passcode-input');
+  const lockError = document.getElementById('lock-error');
+  const lockOverlay = document.getElementById('lock-overlay');
+  const chapter6 = document.getElementById('chapter-6-section');
+
+  if (unlockBtn) {
+    unlockBtn.addEventListener('click', () => {
+      const val = passcodeInput.value.trim().toLowerCase();
+      if (val === 'love') {
+        lockOverlay.style.opacity = '0';
+        setTimeout(() => {
+          lockOverlay.style.visibility = 'hidden';
+          chapter6.classList.remove('chapter-locked');
+        }, 800);
+      } else {
+        lockError.style.opacity = '1';
+        setTimeout(() => { lockError.style.opacity = '0'; }, 2000);
+      }
+    });
+  }
 });

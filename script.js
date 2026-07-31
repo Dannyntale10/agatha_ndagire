@@ -149,6 +149,11 @@ document.addEventListener('DOMContentLoaded', () => {
     playYtSong();
   }, { once: true });
 
+  // Attempt to auto-play immediately (some browsers may still block until first click)
+  setTimeout(() => {
+    playYtSong();
+  }, 1500);
+
   // Live Relationship Time Counter Engine
   const startDate = new Date("2024-01-01T00:00:00");
   const countDays = document.getElementById('count-days');

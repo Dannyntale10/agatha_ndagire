@@ -1,0 +1,9 @@
+# macOS metadata files
+.DS_Store
+
+# node_modules (if you ever add npm stuff)
+node_modules/
+
+# IDE / editor folders
+.idea/
+.vscode/

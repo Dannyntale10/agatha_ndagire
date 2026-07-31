@@ -119,6 +119,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const ytIframe = document.getElementById('yt-player');
   let isYtPlaying = true;
 
+  // Randomly select a romantic song on load
+  const romanticSongs = [
+    '8yqKGaLNLqs', // Original song (perfect matching romantic song)
+    '2Vv-BfVoq4g', // Ed Sheeran - Perfect
+    '450p7goxZqg', // John Legend - All of Me
+    'rtOvBOTyX00'  // Christina Perri - A Thousand Years
+  ];
+  const randomSongId = romanticSongs[Math.floor(Math.random() * romanticSongs.length)];
+  if (ytIframe) {
+    ytIframe.src = `https://www.youtube.com/embed/${randomSongId}?enablejsapi=1&autoplay=1&loop=1&playlist=${randomSongId}`;
+  }
+
   function playYtSong() {
     if (ytIframe && ytIframe.contentWindow) {
       ytIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
@@ -455,4 +467,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('carousel-prev').addEventListener('click', () => updateCarousel(carouselIdx - 1));
   document.getElementById('carousel-next').addEventListener('click', () => updateCarousel(carouselIdx + 1));
+
+  // Storyline Scroll Reveal Animation
+  const chapters = document.querySelectorAll('.story-chapter');
+  
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+  };
+
+  const chapterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('hidden-chapter');
+      }
+    });
+  }, observerOptions);
+
+  chapters.forEach(chapter => {
+    chapterObserver.observe(chapter);
+  });
 });

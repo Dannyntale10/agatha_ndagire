@@ -157,14 +157,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  document.body.addEventListener('click', () => {
+  // Autoplay workaround: Trigger play on any valid user gesture
+  const autoPlayEvents = ['click', 'touchstart', 'mousedown', 'keydown'];
+  
+  function handleAutoPlay() {
     playYtSong();
-  }, { once: true });
+    autoPlayEvents.forEach(evt => {
+      window.removeEventListener(evt, handleAutoPlay);
+    });
+  }
+  
+  autoPlayEvents.forEach(evt => {
+    window.addEventListener(evt, handleAutoPlay, { once: true, passive: true });
+  });
 
-  // Attempt to auto-play immediately (some browsers may still block until first click)
+  // Attempt to auto-play immediately for browsers that allow it
   setTimeout(() => {
-    playYtSong();
-  }, 1500);
+    if (ytIframe && ytIframe.contentWindow) {
+      ytIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+    }
+  }, 1000);
 
   // Live Relationship Time Counter Engine
   const startDate = new Date("2024-01-01T00:00:00");

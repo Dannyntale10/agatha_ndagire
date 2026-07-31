@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Girlfriend's Day - Ndagire Agatha 💕</title>
+  <link rel="stylesheet" href="birthday.css">
+</head>
+<body>
+  <!-- Fullscreen Animated Background Photo Slideshow Layer of Ndagire Agatha -->
+  <div id="bg-slideshow-container">
+    <div class="bg-slide active" style="background-image: url('images/agatha_2.jpg');"></div>
+    <div class="bg-slide" style="background-image: url('images/agatha_5.jpg');"></div>
+    <div class="bg-slide" style="background-image: url('images/agatha_4.jpg');"></div>
+    <div class="bg-slide" style="background-image: url('images/agatha_3.jpg');"></div>
+    <div class="bg-slide" style="background-image: url('images/agatha_1.jpg');"></div>
+  </div>
+
+  <!-- Fullscreen Fireworks Canvas -->
+  <canvas id="fireworks-canvas"></canvas>
+
+  <!-- Nonstop Background YouTube Audio Player iFrame (Only Song: https://youtu.be/8yqKGaLNLqs) -->
+  <div id="bg-youtube-audio" style="position: fixed; width: 1px; height: 1px; opacity: 0.001; pointer-events: none; z-index: -99;">
+    <iframe id="yt-player" src="https://www.youtube.com/embed/8yqKGaLNLqs?enablejsapi=1&autoplay=1&loop=1&playlist=8yqKGaLNLqs" title="Love Song for Ndagire Agatha" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+  </div>
+
+  <!-- Floating Hearts & Glowing Bokeh Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- App Main Content -->
+  <div class="app-container">
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="youtube-song-badge">
+        🎵 Song: YouTube Special 💕
+      </div>
+      <div class="theme-selector">
+        <div class="theme-btn midnight" data-theme="midnight" title="Velvet Rose & Gold"></div>
+        <div class="theme-btn golden" data-theme="golden-luxury" title="Royal Champagne Gold"></div>
+        <div class="theme-btn neon" data-theme="cyberpunk-neon" title="Neon Passion"></div>
+        <div class="theme-btn blossom" data-theme="pastel-blossom" title="Pastel Romance"></div>
+      </div>
+    </div>
+
+    <!-- Recipient Profile Avatar & Title -->
+    <div class="recipient-profile">
+      <div class="avatar-frame" id="profile-avatar-frame">
+        <img id="profile-img" src="images/agatha_2.jpg" alt="Ndagire Agatha">
+      </div>
+      <h1 class="header-title" id="header-title-text">Happy Girlfriend's Day, Ndagire Agatha! 💖</h1>
+    </div>
+
+    <!-- Live Relationship Memory Counter Clock -->
+    <div class="love-counter-card">
+      <div class="counter-title">⏳ Time Spent Loving Ndagire Agatha ⏳</div>
+      <div class="counter-grid">
+        <div class="counter-box"><span id="count-days">365</span><p>Days</p></div>
+        <div class="counter-box"><span id="count-hours">14</span><p>Hours</p></div>
+        <div class="counter-box"><span id="count-mins">32</span><p>Mins</p></div>
+        <div class="counter-box"><span id="count-secs">45</span><p>Secs</p></div>
+      </div>
+    </div>
+
+    <!-- Girlfriend's Day Card with user's original class .Happy_Birthday -->
+    <div class="Happy_Birthday" id="birthday-card" title="Click to read next love note!">
+      <div class="card-subtitle">✨ A Special Message For You ✨</div>
+      <p class="card-message" id="card-text">
+        To my dearest <strong>Ndagire Agatha</strong> — you bring endless warmth, beauty, and sunshine into my world. Thank you for being my constant joy, my sweetest smile, and my favorite person every single day. Loving you is the most wonderful part of my life! 👑🌹✨
+      </p>
+    </div>
+
+    <!-- Interactive Wax-Sealed Secret Love Letter Section -->
+    <div class="secret-letter-section">
+      <div class="wax-envelope" id="wax-envelope-btn" title="Tap to unseal Ndagire Agatha's Secret Letter!">
+        <div class="wax-seal">💌</div>
+        <div class="envelope-label">Tap to Open Ndagire Agatha's Secret Sealed Letter</div>
+      </div>
+    </div>
+
+    <!-- Interactive Romantic Heart Cake centerpiece -->
+    <div class="cake-container" id="cake-element" title="Click to light or blow out the romantic flame candle!">
+      <div class="candle">
+        <div class="flame" id="flame-element"></div>
+      </div>
+      <div class="cake heart-cake">
+        <div class="cake-layer-middle"></div>
+      </div>
+    </div>
+
+    <!-- Surprise Romantic Gift Boxes Featuring Ndagire Agatha's Pictures -->
+    <div class="gifts-section">
+      <h2 class="section-title">🎁 Unwrap Surprise Love Gifts 🎁</h2>
+      <div class="gifts-grid" id="gifts-grid-container">
+        <div class="gift-box" data-photo="images/agatha_1.jpg" data-title="🌹 100 Red Roses" data-gift="A Luxurious Bouquet of 100 Red Roses & Soft Kisses for Ndagire Agatha!">
+          <img src="images/agatha_1.jpg" alt="Ndagire Agatha Gift 1">
+          <div class="gift-ribbon-badge">🎁</div>
+        </div>
+        <div class="gift-box" data-photo="images/agatha_3.jpg" data-title="🎬 Romantic Date Night" data-gift="A Candlelight Romantic Dinner, Movie Night & Unlimited Cuddles!">
+          <img src="images/agatha_3.jpg" alt="Ndagire Agatha Gift 2">
+          <div class="gift-ribbon-badge">🎁</div>
+        </div>
+        <div class="gift-box" data-photo="images/agatha_5.jpg" data-title="✨ Eternal Love" data-gift="Endless Love, Eternal Devotion & Warm Hugs Forever!">
+          <img src="images/agatha_5.jpg" alt="Ndagire Agatha Gift 3">
+          <div class="gift-ribbon-badge">🎁</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photo Memory Gallery Carousel Section featuring Perfectly Fitted Photos -->
+    <div class="carousel-section">
+      <h2 class="section-title">📸 Ndagire Agatha's Photo Gallery 📸</h2>
+      <div class="carousel-container">
+        <button class="carousel-btn" id="carousel-prev">❮</button>
+        <div class="carousel-card">
+          <img id="carousel-img" src="images/agatha_2.jpg" alt="Ndagire Agatha in Red Dress">
+          <div class="carousel-caption" id="carousel-caption">Ndagire Agatha in Stunning Red Lace Dress 🌹</div>
+        </div>
+        <button class="carousel-btn" id="carousel-next">❯</button>
+      </div>
+    </div>
+
+    <!-- Action Controls -->
+    <div class="controls-group">
+      <button class="btn btn-primary" id="btn-confetti">💖 Heart Burst</button>
+      <button class="btn btn-primary" id="btn-fireworks">🎆 Romantic Fireworks</button>
+      <button class="btn btn-secondary" id="btn-music">🎵 Toggle Music</button>
+    </div>
+  </div>
+
+  <!-- Dedicated Gift Reveal Modal with Photo Display -->
+  <div class="modal" id="gift-reveal-modal">
+    <div class="modal-card gift-modal-card">
+      <div class="gift-modal-photo-frame">
+        <img id="gift-modal-photo" src="images/agatha_1.jpg" alt="Unwrapped Gift Photo">
+      </div>
+      <h2 id="gift-modal-title">Surprise Gift Unwrapped!</h2>
+      <p class="gift-modal-body" id="gift-modal-body">Your gift message goes here...</p>
+      <div class="controls-group" style="margin-top: 1.5rem;">
+        <button class="btn btn-primary" id="btn-close-gift">Aww, I Love It! 💕</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Secret Love Letter Modal -->
+  <div class="modal" id="letter-modal">
+    <div class="modal-card letter-modal-card">
+      <div class="letter-stamp">💌</div>
+      <h2>My Dearest Ndagire Agatha 🌹</h2>
+      <div class="handwritten-letter">
+        <p>From the moment you entered my life, every single day has been brighter, sweeter, and infinitely more joyful.</p>
+        <p>Your smile lights up my entire world, your kind heart touches my soul, and your love is the greatest blessing I could ever hold.</p>
+        <p>On this Girlfriend's Day, I want you to know that you are deeply loved, endlessly appreciated, and forever cherished. Happy Girlfriend's Day, my Queen! 👑💖✨</p>
+      </div>
+      <div class="controls-group" style="margin-top: 1.8rem;">
+        <button class="btn btn-primary" id="btn-close-letter">With All My Heart, Forever 💕</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
